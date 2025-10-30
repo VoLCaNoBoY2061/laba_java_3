@@ -60,9 +60,9 @@ public class GornerTableModel extends AbstractTableModel {
           //  case 2:
                // return x;
             default:
-                // Double check_result = (double)Math.round(result*100000)/100000;
-               // if(check_result.toString().charAt(0) == check_result.toString().charAt(check_result.toString().length()-1))
-                if(result/10 == 1)
+                Double check_result = (double)Math.round(result*100000)/100000;
+                if(check_result.toString().charAt(0) == check_result.toString().charAt(check_result.toString().length()-1))
+                //if(result/10 == 1)
                     return true;
                  else
                   return false;
