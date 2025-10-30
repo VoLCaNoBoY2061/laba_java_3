@@ -217,7 +217,6 @@ hboxRange.add(Box.createHorizontalGlue());
                     JTable table = new JTable(data);
 // Установить в качестве визуализатора ячеек длякласса Double разработанный визуализатор
                  table.setDefaultRenderer(Double.class, renderer);
-                  //  table.setDefaultRenderer(Boolean.class, renderer);
 // Установить размер строки таблицы в 30пикселов
                     table.setRowHeight(30);
 // Удалить все вложенные элементы из контейнера hBoxResult
