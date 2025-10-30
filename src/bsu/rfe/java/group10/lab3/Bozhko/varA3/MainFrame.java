@@ -216,7 +216,8 @@ hboxRange.add(Box.createHorizontalGlue());
 // Создать новый экземпляр таблицы
                     JTable table = new JTable(data);
 // Установить в качестве визуализатора ячеек длякласса Double разработанный визуализатор
-                    table.setDefaultRenderer(Double.class, renderer);
+                 table.setDefaultRenderer(Double.class, renderer);
+                  //  table.setDefaultRenderer(Boolean.class, renderer);
 // Установить размер строки таблицы в 30пикселов
                     table.setRowHeight(30);
 // Удалить все вложенные элементы из контейнера hBoxResult
@@ -243,8 +244,8 @@ hboxRange.add(Box.createHorizontalGlue());
         buttonReset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
 // Установить в полях ввода значения по умолчанию
-                textFieldFrom.setText("0.0");
-                textFieldTo.setText("1.0");
+                textFieldFrom.setText("1.0");
+                textFieldTo.setText("2.0");
                 textFieldStep.setText("0.1");
 // Удалить все вложенные элементы контейнераhBoxResult
                 hBoxResult.removeAll();

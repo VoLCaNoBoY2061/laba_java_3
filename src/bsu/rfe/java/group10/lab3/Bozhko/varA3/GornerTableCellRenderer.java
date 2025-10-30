@@ -9,10 +9,12 @@ import java.text.NumberFormat;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JCheckBox;
 import javax.swing.table.TableCellRenderer;
 public class GornerTableCellRenderer implements TableCellRenderer {
     private JPanel panel = new JPanel();
     private JLabel label = new JLabel();
+    private JCheckBox myCheckbox = new JCheckBox();
     // Ищем ячейки, строковое представление которых совпадает с needle
 // (иголкой). Применяется аналогия поиска иголки в стоге сена, в роли
 // стога сена - таблица
@@ -41,21 +43,37 @@ public class GornerTableCellRenderer implements TableCellRenderer {
     public Component getTableCellRendererComponent(JTable table,
                                                    Object value, boolean isSelected, boolean hasFocus, int row, int col) {
 // Преобразовать double в строку с помощью форматировщика
-        String formattedDouble = formatter.format(value);
-// Установить текст надписи равным строковому представлению числа
-        label.setText(formattedDouble);
-        if (col==1 && needle!=null && needle.equals(formattedDouble)) {
+
+        if(col<=1) {
+             String formattedDouble = formatter.format(value);
+            label.setText(formattedDouble);
+            if (col==1 && needle!=null && needle.equals(formattedDouble)) {
 // Номер столбца = 1 (т.е. второй столбец) + иголка не null
 // (значит что-то ищем) +
 // значение иголки совпадает со значением ячейки таблицы -
 // окрасить задний фон панели в красный цвет
-            panel.setBackground(Color.RED);
-        } else {
-            if (col == 2)
+                panel.setBackground(Color.RED);
+            } else {
 
 // Иначе - в обычный белый
-            panel.setBackground(Color.WHITE);
+                panel.setBackground(Color.WHITE);
+            }
+//            String chekdec = value.toString();
+//            int dec = 0;
+//            for(int i = chekdec.length()-1; !(chekdec.charAt(i) == '.'); i--)
+//               dec += chekdec.charAt(i)-'0';
+//            System.out.println(dec);
+//            if( dec%10 == 0 && dec != 0 )
+//                panel.setBackground(Color.BLUE);
+//            else
+//                panel.setBackground(Color.WHITE);
         }
+        else{
+            boolean formattedBool = (boolean) value;
+            myCheckbox.setSelected(formattedBool);
+            panel.add((myCheckbox));
+        }
+
         return panel;
     }
     public void setNeedle(String needle) {
