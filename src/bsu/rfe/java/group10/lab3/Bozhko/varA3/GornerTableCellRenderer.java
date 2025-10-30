@@ -58,15 +58,15 @@ public class GornerTableCellRenderer implements TableCellRenderer {
 // Иначе - в обычный белый
                 panel.setBackground(Color.WHITE);
             }
-//            String chekdec = value.toString();
-//            int dec = 0;
-//            for(int i = chekdec.length()-1; !(chekdec.charAt(i) == '.'); i--)
-//               dec += chekdec.charAt(i)-'0';
-//            System.out.println(dec);
-//            if( dec%10 == 0 && dec != 0 )
-//                panel.setBackground(Color.BLUE);
-//            else
-//                panel.setBackground(Color.WHITE);
+            String chekdec = value.toString();
+            int dec = 0;
+            for(int i = chekdec.length()-1; !(chekdec.charAt(i) == '.'); i--)
+               dec += chekdec.charAt(i)-'0';
+            System.out.println(dec);
+            if( dec%10 == 0 && dec != 0 )
+                panel.setBackground(Color.BLUE);
+            else
+                panel.setBackground(Color.WHITE);
         }
         else{
             boolean formattedBool = (boolean) value;
